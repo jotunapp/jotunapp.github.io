@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+
+</head>
+
+<body>
+  <!-- Nav bar -->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img class="brandImage" />
+        </a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <h4>Welcome to Jotun - the fast growing paint company<h4>
+          </li>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+    <!-- Nav tabs -->
+    <div rold="tabpanel">
+
+      <!-- Tabs -->
+      <ul class="nav nav-pills" role="tablist">
+        </li>
+        <li role="presentation" class="active"><a href="#cost" aria-controls="cost" role="tab" data-toggle="tab">Cost</a>
+
+        </li>
+      </ul>
+
+      <div role="tabpanel" class="tab-pane fade in active" id="cost">
+        <table class="costTable">
+          <th>Description</th>
+          <th style="text-align: center">System A</th>
+          <th style="text-align: center">System B</th>
+          <tr>
+            <td><span class="lead small">Size of the project</span>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">sq.m</span>
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">sq.m</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="lead small">Wash Down/Preparation</span>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="lead small">Blasting</span>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <hr><span class="medium lead">Labour Cost</span>
+            </td>
+
+          </tr>
+          <tr>
+            <td><span class="lead small">Application of First coating</span>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="lead small">Application of Second coating</span>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="lead small">Application of Third coating</span>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="lead small">Application of Fourth coating</span>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan='3'>
+              <hr>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="lead small">System's total lifetime</span>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="lead small">Amount of maintenance/touch-ups in lifetime</span>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input type="text" class="form-control">
+
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" align="center">
+              <button class="btn btn-default" onclick="compute()">Compute</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="costModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Cost Summary for the Systems (in USD)</h4>
+      </div>
+      <div class="modal-body" style="align:center">
+        <table>
+          <tr>
+            <td>
+              <canvas id="costSummary" width="400" height="300" class="chart"></canvas>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table class="table table-striped" style="display: inline-block">
+                <th>Description</th>
+                <th>System A</th>
+                <th>System B</th>
+                <tr>
+                  <td>Initial total cost of the system</td>
+                  <td id="itcA">38.68</td>
+                  <td id="itcB" class="success">27.50</td>
+                </tr>
+                <tr>
+                  <td>Total Cost per sq.m</td>
+                  <td id="itcA" class="success">38.7</td>
+                  <td id="itcB">46.5</td>
+                </tr>
+                <tr>
+                  <td>Project cost for full time (overlifetime)</td>
+                  <td id="itcA" class="success">386784</td>
+                  <td id="itcB">465273</td>
+                </tr>
+                <tr>
+                  <td>Life cycle cost per year</td>
+                  <td id="itcA" class="success">12983</td>
+                  <td id="itcB">23264</td>
+                </tr>
+                <tr>
+                  <td>Life cycle cost for 5yrs</td>
+                  <td id="itcA" class="success">64464</td>
+                  <td id="itcB">116318</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        </span>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+body {
+  background-color: #f7f7f9;
+}
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.brandImage {
+  background: url('http://cdn.jotun.com/images/Future-better_tcm24-617.png');
+  width: 142px;
+  height: 41px;
+  margin-top: -11px;
+}
+.navbar {
+  margin-bottom: 20px;
+}
+.inline-label {
+  display: inline-block;
+  padding-right: 10px;
+}
+.container {
+  padding: 10px;
+}
+.tab-content {
+  padding-top: 25px;
+}
+#cost {
+  padding-top: 10px;
+}
+.costTable td {
+  padding-top: 15px;
+  padding-right: 15px;
+}
+.costTable .input-group {
+  width: 100%;
+}
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+.navbar .navbar-collapse {
+  text-align: center;
+}
