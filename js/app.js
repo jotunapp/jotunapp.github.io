@@ -44,6 +44,10 @@ var compute = function () {
         }
     ]
   };
+
+  $('#costModal').modal({
+    show: true
+  });
 };
 
 $(document).ready(function () {
