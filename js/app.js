@@ -45,6 +45,10 @@ var compute = function () {
     ]
   };
 
+  var ctx = $("#costSummary").get(0).getContext("2d");
+  var chart = new Chart(ctx).Bar(data, {
+    tooltipTitleFontSize : 0
+  });
   $('#costModal').modal({
     show: true
   });
