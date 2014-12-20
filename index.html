@@ -6,14 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bootstrap 101 Template</title>
-
   <!-- Bootstrap -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/app.css">
-
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
 </head>
 
-<body>
+<body ng-app="app" ng-controller="MainController">
   <!-- Nav bar -->
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
@@ -36,252 +35,853 @@
   </nav>
 
   <div class="container">
+
     <!-- Nav tabs -->
     <div rold="tabpanel">
 
       <!-- Tabs -->
       <ul class="nav nav-pills" role="tablist">
-        </li>
-        <li role="presentation" class="active"><a href="#cost" aria-controls="cost" role="tab" data-toggle="tab">Cost</a>
-
-        </li>
+        <li role="presentation" class="active"><a href="#calculator" aria-controls="calculator" role="tab" data-toggle="tab">Calculator</a></li>
+        <li role="presentation"><a href="#cost" aria-controls="cost" role="tab" data-toggle="tab">Costs</a></li>
+        <li role="presentation"><a href="#calculations" aria-controls="" role="tab" data-toggle="tab">Calculations</a></li>
       </ul>
 
-      <div role="tabpanel" class="tab-pane fade in active" id="cost">
-        <table class="costTable">
-          <th>Description</th>
-          <th style="text-align: center">System A</th>
-          <th style="text-align: center">System B</th>
-          <tr>
-            <td><span class="lead small">Size of the project</span>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-addon">sq.m</span>
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-addon">sq.m</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="lead small">Wash Down/Preparation</span>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+      <div class="tab-content">
+        <!-- Calculator -->
+        <div role="tabpanel" class="tab-pane fade in active" id="calculator">
+          
+          <table class="costTable">
+            <th>Description</th>
+            <th style="text-align: center">System A</th>
+            <th style="text-align: center">System B</th>
+            <tr>
+              <td><span class="lead small">Size of the project</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.a.scopeInM2" />
+                  <span class="input-group-addon">sq.m</span>
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.b.scopeInM2" />
+                  <span class="input-group-addon">sq.m</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">Wash Down/Preparation</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.a.washDownPrep" />
 
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.b.washDownPrep" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">Blasting</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.a.blasting">
 
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="lead small">Blasting</span>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.b.blasting">
 
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <hr><span class="medium lead">Labour Cost</span>
+              </td>
 
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="3">
-              <hr><span class="medium lead">Labour Cost</span>
-            </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">Application of First coating</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.a.lc_1">
 
-          </tr>
-          <tr>
-            <td><span class="lead small">Application of First coating</span>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.b.lc_1">
 
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">Application of Second coating</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.a.lc_2">
 
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="lead small">Application of Second coating</span>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.b.lc_2">
 
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">Application of Third coating</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.a.lc_3">
 
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="lead small">Application of Third coating</span>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.b.lc_3">
 
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">Application of Fourth coating</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.a.lc_4">
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.b.lc_4">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan='3'>
+                <hr>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">System's total lifetime</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.a.lifetime">
 
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="lead small">Application of Fourth coating</span>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.b.lifetime">
 
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">Amount of maintenance/touch-ups in lifetime</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.a.touchUps">
 
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan='3'>
-              <hr>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="lead small">System's total lifetime</span>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="calculator.b.touchUps">
 
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
-
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="lead small">Amount of maintenance/touch-ups in lifetime</span>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
-
-              </div>
-            </td>
-            <td>
-              <div class="input-group">
-                <input type="text" class="form-control">
-
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="3" align="center">
-              <button class="btn btn-default" onclick="compute()">Compute</button>
-            </td>
-          </tr>
-        </table>
+                </div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td><span class="lead small">Total shutdown cost result (per m2)</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getTotalShutdownCost('a')}}</span>
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getTotalShutdownCost('b')}}</span>
+                </div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td><span class="lead small">Total over lifetime maintenance/touch-up cost per m2</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getLifetimeMaintenanceTouchupCost('a')|number:2}}</span>
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getLifetimeMaintenanceTouchupCost('b')|number:2}}</span>
+                </div>
+              </td>
+              
+            </tr>
+            
+            <tr>
+              <td><span class="lead small">Total Cost per sq.m</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getTotalCostPerSqM('a')|number:1}}</span>
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getTotalCostPerSqM('b')|number:1}}</span>
+                </div>
+              </td>
+              
+            </tr>
+            
+            <tr>
+              <td><span class="lead small">PROJECT COST for full size(over lifetime)</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getProjectCost('a')|currency:"$ ":0}}</span>
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getProjectCost('b')|currency:"$ ":0}}</span>
+                </div>
+              </td>
+              
+            </tr>
+            
+            <tr>
+              <td><span class="lead small">Lifecycle cost per year</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getLifecycleCost('a', 1)|currency:"$ ":0}}</span>
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getLifecycleCost('b', 1)|currency:"$ ":0}}</span>
+                </div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td><span class="lead small">Lifecycle cost for 5 year</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getLifecycleCost('a', 5)|currency:"$ ":0}}</span>
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <span class="lead medium">{{getLifecycleCost('b', 5)|currency:"$ ":0}}</span>
+                </div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td><span class="lead small">Difference in LCC between the systems for 5 years</span></td>
+              <td colspan="2">
+                <div class="input-group">
+                  <span class="lead medium">{{(getLifecycleCost('a', 5) - getLifecycleCost('b', 5)) | currency:"$ ": 0}}</span>
+                </div>
+            </tr>
+            
+            <tr>
+              <td colspan="3" align="center">
+                <button class="btn btn-default" onclick="compute()">Compute</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!-- Calculator Ends -->
+        
+        <!-- Cost Section -->
+        <div role="tabpanel" class="tab-pane fade" id="cost">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+            <!-- Collapsible table -->
+            <div ng-repeat="item in items">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading{{$index}}">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}" aria-expanded="true" aria-controls="collapse{{$index}}">
+                      {{item.title}}
+                    </a>
+                  </h4>
+      </div>
+      <div id="collapse{{$index}}" class="panel-collapse collapse" ng-class="{in: $index == 0}" role="tabpanel" aria-labelledby="heading{{$index}}">
+        <div class="panel-body">
+          <table class="costTable" border="0px">
+            <tr>
+              <th style="text-align:center">Description</th>
+              <th style="text-align:center">System A</th>
+              <th style="text-align:center">System B</th>
+            </tr>
+            <tr>
+              <td><span class="lead small">Price per litre</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="item.a.ppl" />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="item.b.ppl" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">Required DFT</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="item.a.dft" />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="item.b.dft" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">VS %</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="item.a.vs" />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="item.b.vs" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">Factor</span>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="item.a.factor" />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="item.b.factor" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="lead small">Cost per sq.m</span>
+              </td>
+              <td align="center">
+                <div class="input-group">
+                  <span class="lead medium" ng-model="item.a.cpm">{{evaluate(item.a)|number: 2}}</span>
+                </div>
+              </td>
+              <td align="center">
+                <div class="input-group">
+                  <span class="lead medium">{{evaluate(item.b)|number: 2}}</span>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
+    </div>
+    </div>
+    </div>
+        <!-- Cost Section ends -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="costModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-            </button>
-            <h4 class="modal-title" id="myModalLabel">Cost Summary for the Systems (in USD)</h4>
+        <!-- Calculations -->
+        <div role="tabpanel" class="tab-pane fade" id="calculations">
+          <div role="tabpanel" class="tab-pane fade in active" id="calculations">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingSection1">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseSection1" aria-expanded="true" aria-controls="collapseSection1">
+                        Section 1
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseSection1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSection1">
+                    <div class="panel-body">
+                      <table class="costTable">
+                        <th>Description</th>
+                        <th style="text-align: center">System A</th>
+                        <th style="text-align: center">System B</th>
+                        <tr>
+                          <td><span class="lead small">Other cost (1) in $ per day</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.otherCost_1" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.otherCost_1" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">Number of days needed (1)</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.numDays_1" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.numDays_1" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr><td colspan="3"><hr/></td></tr>
+
+                        <tr>
+                          <td><span class="lead small">Other cost (2) in $ per day</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.otherCost_2" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.otherCost_2" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">Number of days needed (2)</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.numDays_2" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.numDays_2" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr><td colspan="3"><hr/></td></tr>
+
+                        <tr>
+                          <td><span class="lead small">Other cost (3) in $ per day</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.otherCost_3" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.otherCost_3" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">Number of days needed (3)</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.numDays_3" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.numDays_3" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr><td colspan="3"><hr/></td></tr>
+
+
+                        <tr>
+                          <td><span class="lead small">Other cost (4) in $ per day</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.otherCost_4" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.otherCost_4" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">Number of days needed (4)</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.numDays_4" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.numDays_4" />
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td><span class="lead small">Total cost of the project</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculator.a.scopeInM2" readonly/>
+                              <span class="input-group-addon">sq.m</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculator.b.scopeInM2" readonly/>
+                              <span class="input-group-addon">sq.m</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td><span class="lead small">Total cost for other costs</span></td>
+                          <td>
+                            <span class="lead medium">{{getTotalCostForOtherCost('a')}}</span>
+                          </td>
+                          <td>
+                            <span class="lead medium">{{getTotalCostForOtherCost('b')}}</span>
+                          </td>
+                        </tr>
+
+                      
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+              <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingSection2">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseSection2" aria-expanded="true" aria-controls="collapseSection2">
+                        Section 2
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseSection2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSection2">
+                    <div class="panel-body">
+                      <table class="costTable">
+                        <th>Description</th>
+                        <th style="text-align: center">System A</th>
+                        <th style="text-align: center">System B</th>
+                        <tr>
+                          <td><span class="lead small">Shut down cost per day</span></td>
+                          <td>
+                            <div class="input-group">
+                              <span class="input-group-addon">$</span>
+                              <input type="text" class="form-control" ng-model="calculations.a.shutDownPerDay" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <span class="input-group-addon">$</span>
+                              <input type="text" class="form-control" ng-model="calculations.b.shutDownPerDay" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">Shutdown total number of days (for lifetime)</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.shutDownNoOfDays" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.shutDownNoOfDays" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">Total Project size</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculator.a.scopeInM2" readonly/>
+                              <span class="input-group-addon">sq.m</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculator.b.scopeInM2" readonly/>
+                              <span class="input-group-addon">sq.m</span>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td><span class="lead small">Shutdown Cost Result (per sq.m)</span></td>
+                          <td>
+                            <span class="lead medium">{{getTotalShutdownCost('a')}}</span>
+                          </td>
+                          <td>
+                            <span class="lead medium">{{getTotalShutdownCost('b')}}</span>
+                          </td>
+                        </tr>
+                        
+                        
+                      
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              
+              <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingSection3">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseSection3" aria-expanded="true" aria-controls="collapseSection2">
+                        Section 3
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseSection3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSection3">
+                    <div class="panel-body">
+                      <table class="costTable">
+                        <th>Description</th>
+                        <th style="text-align: center">System A</th>
+                        <th style="text-align: center">System B</th>
+                        
+                        <tr>
+                          <td><span class="lead small">System's total lifetime</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculator.a.lifetime" readonly/>
+                              <span class="input-group-addon">yrs</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculator.b.lifetime" readonly/>
+                              <span class="input-group-addon">yrs</span>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td><span class="lead small">Each maintenance/touch-up cost per sq.m</span></td>
+                          <td>
+                            <div class="input-group">
+                              <span class="lead medium">{{getMaintenanceCost('a')|number:2}}</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <span class="lead medium">{{getMaintenanceCost('b')|number:2}}</span>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td><span class="lead small">Total maintenance/touch-up times</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculator.a.touchUps" readonly />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculator.b.touchUps" readonly />
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td><span class="lead small">1st Maintenance/Touch-up % of project area</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.maintenancePercent[0]" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.maintenancePercent[0]" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">2nd Maintenance/Touch-up % of project area</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.maintenancePercent[1]" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.maintenancePercent[1]" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">3rd Maintenance/Touch-up % of project area</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.maintenancePercent[2]" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.maintenancePercent[2]" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">4th Maintenance/Touch-up % of project area</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.maintenancePercent[3]" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.maintenancePercent[3]" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">5th Maintenance/Touch-up % of project area</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.maintenancePercent[4]" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.maintenancePercent[4]" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">6th Maintenance/Touch-up % of project area</span></td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.a.maintenancePercent[5]" />
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" ng-model="calculations.b.maintenancePercent[5]" />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><span class="lead small">Total maintenance/touch-up times</span></td>
+                          <td>
+                            <span class="lead medium">{{getTotalMaintenanceTouchupCost('a')|number:2}}</span>
+                          </td>
+                          <td>
+                            <span class="lead medium">{{getTotalMaintenanceTouchupCost('b')|number:2}}</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- Calculations Ends -->
+
       </div>
-      <div class="modal-body" style="align:center">
-        <table>
-          <tr>
-            <td>
-              <canvas id="costSummary" width="400" height="300" class="chart"></canvas>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <table class="table table-striped" style="display: inline-block">
-                <th>Description</th>
-                <th>System A</th>
-                <th>System B</th>
-                <tr>
-                  <td>Initial total cost of the system</td>
-                  <td id="itcA">38.68</td>
-                  <td id="itcB" class="success">27.50</td>
-                </tr>
-                <tr>
-                  <td>Total Cost per sq.m</td>
-                  <td id="itcA" class="success">38.7</td>
-                  <td id="itcB">46.5</td>
-                </tr>
-                <tr>
-                  <td>Project cost for full time (overlifetime)</td>
-                  <td id="itcA" class="success">386784</td>
-                  <td id="itcB">465273</td>
-                </tr>
-                <tr>
-                  <td>Life cycle cost per year</td>
-                  <td id="itcA" class="success">12983</td>
-                  <td id="itcB">23264</td>
-                </tr>
-                <tr>
-                  <td>Life cycle cost for 5yrs</td>
-                  <td id="itcA" class="success">64464</td>
-                  <td id="itcB">116318</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-        </span>
+
+    </div>
+  </div>
+      
+  <!-- Modal -->
+  <div class="modal fade" id="costModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Cost Summary for the Systems (in USD)</h4>
+        </div>
+        <div class="modal-body" style="align:center">
+          <table>
+            <!--<tr>
+              <td>
+                <canvas id="costSummary" width="400" height="300" class="chart"></canvas>
+              </td>
+            </tr>-->
+            <tr>
+              <td>
+                <table class="table table-striped" style="display: inline-block">
+                  <th>Description</th>
+                  <th>System A</th>
+                  <th>System B</th>
+                  <tr class="compare-row">
+                    <td>Initial total cost of the system</td>
+                    <td class="compare-data">{{getInitialTotalCost('a')|number:2}}</td>
+                    <td class="compare-data">{{getInitialTotalCost('b')|number:0}}</td>
+                  </tr>
+                  <tr class="compare-row">
+                    <td>Total Shutdown cost result</td>
+                    <td class="compare-data">{{getTotalShutdownCost('a')|number:2}}</td>
+                    <td class="compare-data">{{getTotalShutdownCost('b')|number:0}}</td>
+                  </tr>
+                  <tr class="compare-row">
+                    <td>Total Cost per sq.m</td>
+                    <td class="compare-data">{{getTotalCostPerSqM('a')|number:1}}</td>
+                    <td class="compare-data">{{getTotalCostPerSqM('b')|number:1}}</td>
+                  </tr>
+                  <tr class="compare-row">
+                    <td>Project cost for full time (overlifetime)</td>
+                    <td class="compare-data">{{getProjectCost('a')|number:0}}</td>
+                    <td class="compare-data">{{getProjectCost('b')|number:0}}</td>
+                  </tr>
+                  <tr class="compare-row">
+                    <td>Life cycle cost per year</td>
+                    <td class="compare-data">{{getLifecycleCost('a', 1)|number:0}}</td>
+                    <td class="compare-data">{{getLifecycleCost('b', 1)|number:0}}</td>
+                  </tr>
+                  <tr class="compare-row">
+                    <td>Life cycle cost for 5yrs</td>
+                    <td class="compare-data">{{getLifecycleCost('a', 5)|number:0}}</td>
+                    <td class="compare-data">{{getLifecycleCost('b', 5)|number:0}}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          </span>
+        </div>
       </div>
     </div>
-    </div>
-    </div>
-
-    </div>
-    </div>
-
-
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Chart.js"></script>
-    <script src="js/app.js"></script>
+  </div>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/Chart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/angular-app.js"></script>
 </body>
 
 </html>

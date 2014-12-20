@@ -2,14 +2,6 @@ var app = {
   system: 'sysA'
 };
 
-var bindSystemChange = function () {
-  "use strict";
-  $('[name=system]').on('change', function () {
-    var id = $(this).attr('id');
-    $(document).trigger('syschanged', [id]);
-  });
-};
-
 var bindPopovers = function () {
   "use strict";
   $("#lifetime")
@@ -22,8 +14,8 @@ var bindPopovers = function () {
 
 var compute = function () {
   "use strict";
-  
-  var data = {
+
+  /*var data = {
     labels: ["Initial total cost of System/sq.m", "Total Cost/sq.m", "Project Cost for full size(over lifetime)", "Life cycle cost per year", "Life cycle cost for 5yrs"],
     datasets: [
       {
@@ -48,6 +40,20 @@ var compute = function () {
   var ctx = $("#costSummary").get(0).getContext("2d");
   var chart = new Chart(ctx).Bar(data, {
     tooltipTitleFontSize : 0
+  });*/
+
+  $('.compare-row').each(function () {
+    var elems = $('td.compare-data', $(this));
+    elems.removeClass('success');
+    if (elems) {
+      var smallest = elems[0];
+      for (var i = 1; i < elems.length; i++) {
+        if (parseFloat(elems[i].innerHTML) < parseFloat(smallest.innerHTML)) {
+          smallest = elems[i];
+        }
+      }
+      $(smallest).addClass('success');
+    }
   });
   $('#costModal').modal({
     show: true
@@ -56,7 +62,6 @@ var compute = function () {
 
 $(document).ready(function () {
   "use strict";
-  bindSystemChange();
   bindPopovers();
   $(document).on('syschanged', function (event, id) {
     app.system = id;
